@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../../models');
 router.get('/', (req, res) => {
     Post.findAll({
         order: [['created_at', 'DESC']],
-        attributes: ['id', 'post_url', 'title', 'created_at'],
+        attributes: ['id', 'post_con', 'title', 'created_at'],
         //order: [['created_at', 'DESC']],
         include: [
             {model: Comment,
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'post_url', 'title', 'created_at'],
+    attributes: ['id', 'post_con', 'title', 'created_at'],
     include: [
       { 
         model: User,
@@ -59,10 +59,10 @@ router.get('/:id', (req, res) => {
 
 // Create a post
 router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    // expects {title: 'Taskmaster goes public!', post_con: 'This is the post details', user_id: 1}
     Post.create({
       title: req.body.title,
-      post_url: req.body.post_url,
+      post_con: req.body.post_con,
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
@@ -78,7 +78,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Post.update(
       {
-        title: req.body.title
+        title: req.body.title,
+        post_con: req.body.post_con
       },
       {
         where: {

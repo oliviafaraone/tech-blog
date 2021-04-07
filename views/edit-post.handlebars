@@ -7,14 +7,14 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.post_url}})</span>
+      <input name="post-con" type="text" value="{{post.post_con}}">
     </div>
     <div>
       by you on {{post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
     </div>
-    <button type="submit">Save post</button>
+    <button type="submit">Update post</button>
     <button type="button" class="delete-post-btn">Delete post</button>
   </form>
 </article>

@@ -15,7 +15,7 @@ router.get('/',
     },
     attributes: [
       'id',
-      'post_url',
+      'post_con',
       'title',
       'created_at',
     //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -45,13 +45,23 @@ router.get('/',
     });
 });
 
+router.get('/create', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('add-post');
+        return;
+      } else {
+        res.redirect('/');
+      }
+    
+  });
+
 router.get('/edit/:id',
 // withAuth, 
 (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_url',
+      'post_con',
       'title',
       'created_at',
     //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
