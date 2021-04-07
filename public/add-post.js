@@ -1,6 +1,19 @@
+document.querySelector('#new-post-form').addEventListener('submit', 
+function (){
+    
+        document.location.replace('/add-post');
+        console.log('button clicked')
+      
+});
+
+if(document.getElementById('new-post-form').clicked == true)
+{
+   alert("button was clicked");
+};
+
 async function newFormHandler(event) {
     event.preventDefault();
-  
+
     const title = document.querySelector('input[name="post-title"]').value;
     const post_url = document.querySelector('input[name="post-url"]').value;
   
@@ -22,4 +35,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
