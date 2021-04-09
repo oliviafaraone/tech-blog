@@ -38,6 +38,8 @@
     padding-right: 20px;
   }
 
+
+
   li h3{
     color: var(--first-color);
     background-color: var(--fourth-color);
@@ -70,7 +72,7 @@ li h4{
    */
   .post-list {
     margin: 0;
-    padding: 0;
+    padding: 10;
   }
   
   textarea, input {
@@ -112,11 +114,11 @@ li h4{
 
 
   header {
-    border-bottom: 1px solid var(--fourth-color);
+    border-bottom: 10px solid var(--second-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1%;
+    padding:  10px;
     background-color:var(--fourth-color);
   }
   
